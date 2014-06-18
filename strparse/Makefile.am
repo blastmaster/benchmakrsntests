@@ -4,20 +4,13 @@
 ACLOCAL_AMFLAGS = ${ACLOCAL_FLAGS}
 
 AM_CXXFLAGS = -std=c++11
-bin_PROGRAMS=testMap testIf testGprf
+bin_PROGRAMS=bench
 BUILT_SOURCES=Numbrhash.H
 
 OPTIMIZE = -O0
 
-
-testMap_SOURCES = main.cc
-testMap_CXXFLAGS = ${AM_CXXFLAGS} $(OPTIMIZE) -DUSE_MAP 
-
-testIf_SOURCES = main.cc
-testIf_CXXFLAGS = ${AM_CXXFLAGS} $(OPTIMIZE) -DUSE_IF
-
-testGprf_SOURCES = Numbrhash.H main.cc
-testGprf_CXXFLAGS =  ${AM_CXXFLAGS} $(OPTIMIZE) -DUSE_GPERF
+bench_SOURCES = Numbrhash.H main.cc
+bench_CXXFLAGS = ${AM_CXXFLAGS} $(OPTIMIZE)
 
 EXTRA_DIST= nums.gperf
 

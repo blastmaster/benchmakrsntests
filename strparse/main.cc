@@ -5,6 +5,11 @@
 #include <stdint.h>
 #include <iostream>
 
+#include <time.h>
+#include <sys/time.h>
+
+#define CLOCK_PRECISION 1000000000L
+
 using std::strcmp;
 
 
@@ -119,28 +124,26 @@ int huge_compare(const std::string& text)
 
 int map_compare(const std::map<std::string, int>& map, const std::string& key)
 {
-    auto it =map.find(key);
+    auto it = map.find(key);
     if (it == map.end()) return -1;
     else return (*it).second;
 }
 
-
-
 void rtime_gprf(const uint32_t loopz , const std::string & s)
 {
 
-	std::cout << s.c_str() << "size:" << (s.size()) << std::endl;
+	//std::cout << s.c_str() << "size:" << (s.size()) << std::endl;
 	Numbrhash nh;
 	const NumberP *blub;
 	for (uint32_t i = 0 ; i< loopz; ++i)
 	{
 		blub = nh.in_word_set(s.c_str(),s.size());
-		if (i==100){
-			if (blub)
-				std::cout << "erg: "<< 	blub->op <<std::endl;
-			else
-				std::cout << "kein erg" << std::endl;
-		}
+		//if (i==100) {
+			//if (blub)
+				//std::cout << "erg: "<< 	blub->op <<std::endl;
+			//else
+				//std::cout << "kein erg" << std::endl;
+		//}
 	}
 }
 
@@ -150,125 +153,27 @@ void rtime_hc(uint32_t loopz, const std::string & s)
     for(uint32_t i = 0; i < loopz; ++i)
     {
        j= huge_compare(s);
-       if (i==100){
-	       std::cout << "fub" << j << std::endl;
-       }
+       //if (i==100){
+		   //std::cout << "fub" << j << std::endl;
+       //}
     }
 }
 
 void rtime_mc(uint32_t loopz , const std::string &s)
 {
     int j;
-    for(uint32_t i = 0; i < loopz; ++i)
-    {
+    for(uint32_t i = 0; i < loopz; ++i) {
         j = map_compare(global_map, s);
-	if (i==100){
-		std::cout << "fub" << j << std::endl;
-	}
+        //if (i==100) {
+            //std::cout << "fub" << j << std::endl;
+        //}
     }
 }
 
-void mapsetup(void){
-	global_map["1"] = 1;
-	global_map["2"] = 2;
-	global_map["3"] = 3;
-	global_map["4"] = 4;
-	global_map["5"] = 5;
-	global_map["6"] = 6;
-	global_map["7"] = 7;
-	global_map["8"] = 8;
-	global_map["9"] = 9;
-	global_map[ "10"] = 10;
-	global_map[ "11"] = 11;
-	global_map[ "12"] = 12;
-	global_map[ "13"] = 13;
-	global_map[ "14"] = 14;
-	global_map[ "15"] = 15;
-	global_map[ "16"] = 16;
-	global_map[ "17"] = 17;
-	global_map[ "18"] = 18;
-	global_map[ "19"] = 19;
-	global_map[ "20"] = 20;
-	global_map[ "21"] = 21;
-	global_map[ "22"] = 22;
-	global_map[ "23"] = 23;
-	global_map[ "24"] = 24;
-	global_map[ "25"] = 25;
-	global_map[ "26"] = 26;
-	global_map[ "27"] = 27;
-	global_map[ "28"] = 28;
-	global_map[ "29"] = 29;
-	global_map[ "30"] = 30;
-	global_map[ "31"] = 31;
-	global_map[ "32"] = 32;
-	global_map[ "33"] = 33;
-	global_map[ "34"] = 34;
-	global_map[ "35"] = 35;
-	global_map[ "36"] = 36;
-	global_map[ "37"] = 37;
-	global_map[ "38"] = 38;
-	global_map[ "39"] = 39;
-	global_map[ "40"] = 40;
-	global_map[ "41"] = 41;
-	global_map[ "42"] = 42;
-	global_map[ "43"] = 43;
-	global_map[ "44"] = 44;
-	global_map[ "45"] = 45;
-	global_map[ "46"] = 46;
-	global_map[ "47"] = 47;
-	global_map[ "48"] = 48;
-	global_map[ "49"] = 49;
-	global_map[ "50"] = 50;
-	global_map[ "51"] = 51;
-	global_map[ "52"] = 52;
-	global_map[ "53"] = 53;
-	global_map[ "54"] = 54;
-	global_map[ "55"] = 55;
-	global_map[ "56"] = 56;
-	global_map[ "57"] = 57;
-	global_map[ "58"] = 58;
-	global_map[ "59"] = 59;
-	global_map[ "60"] = 60;
-	global_map[ "61"] = 61;
-	global_map[ "62"] = 62;
-	global_map[ "63"] = 63;
-	global_map[ "64"] = 64;
-	global_map[ "65"] = 65;
-	global_map[ "66"] = 66;
-	global_map[ "67"] = 67;
-	global_map[ "68"] = 68;
-	global_map[ "69"] = 69;
-	global_map[ "70"] = 70;
-	global_map[ "71"] = 71;
-	global_map[ "72"] = 72;
-	global_map[ "73"] = 73;
-	global_map[ "74"] = 74;
-	global_map[ "75"] = 75;
-	global_map[ "76"] = 76;
-	global_map[ "77"] = 77;
-	global_map[ "78"] = 78;
-	global_map[ "79"] = 79;
-	global_map[ "80"] = 80;
-	global_map[ "81"] = 81;
-	global_map[ "82"] = 82;
-	global_map[ "83"] = 83;
-	global_map[ "84"] = 84;
-	global_map[ "85"] = 85;
-	global_map[ "86"] = 86;
-	global_map[ "87"] = 87;
-	global_map[ "88"] = 88;
-	global_map[ "89"] = 89;
-	global_map[ "90"] = 90;
-	global_map[ "91"] = 91;
-	global_map[ "92"] = 92;
-	global_map[ "93"] = 93;
-	global_map[ "94"] = 94;
-	global_map[ "95"] = 95;
-	global_map[ "96"] = 96;
-	global_map[ "97"] = 97;
-	global_map[ "98"] = 98;
-	global_map[ "99"] = 99;
-	global_map["100"] = 100;
+void mapsetup(void)
+{
+    for (int i = 1; i <= 100; i++)
+        global_map[std::to_string(i)] = i;
 }
 
 
@@ -276,21 +181,33 @@ int main(int argc, const char *argv[] )
 {
 
 	std::string s;
-	if (argc == 2){
-		s = std::string(argv[1]);}
-	else{
+	if (argc == 2) {
+		s = std::string(argv[1]);
+    }
+	else {
 		s = std::string("99");
 	}
 
-#if defined  USE_MAP
+    struct timespec start_time, end_time;
+
 	mapsetup();
+    clock_gettime(CLOCK_MONOTONIC, &start_time);
 	rtime_mc(2048000,s);
-
-#elif defined USE_IF 
+    clock_gettime(CLOCK_MONOTONIC, &end_time);
+    std::cout << "Map benchmark takes: "
+             << ((double) end_time.tv_sec - (double) start_time.tv_sec) + ((double) end_time.tv_nsec - (double) start_time.tv_nsec) / CLOCK_PRECISION
+             << std::endl;
+    clock_gettime(CLOCK_MONOTONIC, &start_time);
 	rtime_hc(2048000,s);
-#elif defined USE_GPERF
+    clock_gettime(CLOCK_MONOTONIC, &end_time);
+    std::cout << "If-else benchmark takes: "
+              << ((double) end_time.tv_sec - (double) start_time.tv_sec) + ((double) end_time.tv_nsec - (double) start_time.tv_nsec) / CLOCK_PRECISION
+              << std::endl;
+    clock_gettime(CLOCK_MONOTONIC, &start_time);
 	rtime_gprf(2048000,s);
-#endif
-
+    clock_gettime(CLOCK_MONOTONIC, &end_time);
+    std::cout << "gperf benchmark takes: "
+              << ((double) end_time.tv_sec - (double) start_time.tv_sec) + ((double) end_time.tv_nsec - (double) start_time.tv_nsec) / CLOCK_PRECISION
+              << std::endl;
 	return 0;
 }
